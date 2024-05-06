@@ -2,6 +2,9 @@ import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import piclogo from "../../../../public/assets/images/site-logo.svg";
+import Theme from "./Theme";
+import MobileNav from "./MobileNav";
+import GlobalSearch from "../search/GlobalSearch";
 
 const Navbar = () => {
   return (
@@ -22,8 +25,11 @@ const Navbar = () => {
       </Link>
 
       {/* GLOBAL SEARCH */}
+      <GlobalSearch />
       <div className=" flex-between gap-5">
-        theme
+        {/* theme component */}
+        <Theme />
+
         {/* show the user name if he is signed in otherwise hidden */}
         {/* <SignedIn>
     <UserButton afterSignOutUrl="/" apperance={{
@@ -33,7 +39,9 @@ const Navbar = () => {
         }
     }}/>
 </SignedIn> */}
-        mobilenavigation bar
+
+        {/* here  mobilenavigation bar */}
+        <MobileNav />
       </div>
     </nav>
   );
