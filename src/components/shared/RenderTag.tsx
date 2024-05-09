@@ -3,10 +3,10 @@ import React from "react";
 import { Badge } from "../ui/badge";
 
 interface Props {
-  _id: number;
+  _id: string;
   name: string;
-  totalquestion: number;
-  showCount: boolean;
+  totalquestion?: number;
+  showCount?: boolean;
 }
 
 const RenderTag = ({ _id, name, totalquestion, showCount }: Props) => {
