@@ -5,9 +5,9 @@ import Question from "@/database/question.model";
 import { connectToDatabase } from "../mongoose";
 import Tag from "@/database/tag.model";
 import User from "@/database/user.model";
-import Interaction from "@/database/interaction.model";
+// import Interaction from "@/database/interaction.model";
 import { GetQuestionsParams, CreateQuestionParams } from "@/types/type";
-import { FilterQuery } from "mongoose";
+// import { FilterQuery } from "mongoose";
 import { revalidatePath } from "next/cache";
 
 export async function getQuestions(params: GetQuestionsParams) {
