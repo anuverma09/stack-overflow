@@ -22,9 +22,21 @@ const Theme = () => {
       <MenubarMenu>
         <MenubarTrigger className="focus:bg-light-900 data-[state=open]:bg-light-900 dark:focus:bg-dark-200 dark:data-[state=open]:bg-dark-200">
           {mode === "light" ? (
-            <Image src={sunpic} alt="sun" height={20} width={20} />
+            <Image
+              src={sunpic}
+              alt="sun"
+              height={20}
+              width={20}
+              className="active-theme"
+            />
           ) : (
-            <Image src={moonpic} alt="moon" height={20} width={20} />
+            <Image
+              src={moonpic}
+              alt="moon"
+              height={20}
+              width={20}
+              className="active-theme"
+            />
           )}
         </MenubarTrigger>
 

@@ -54,7 +54,7 @@ const MobileNav = () => {
 
           {/* signout component from clerk */}
           {/* <SignOut>(whole div should be inside it,if user is notlogged in then login button will be shown ) */}
-          <div className="mt-2 flex flex-col gap-3">
+          <div className="mt-14 flex flex-col gap-3">
             <SheetClose asChild>
               <Link href={"/sign-in"}>
                 <Button className="small-medium btn-secondary min-h-[41px] w-full rounded-lg px-4 py-3 shadow-none">

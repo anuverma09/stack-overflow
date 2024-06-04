@@ -5,6 +5,7 @@ import piclogo from "../../../../public/assets/images/site-logo.svg";
 import Theme from "./Theme";
 import MobileNav from "./MobileNav";
 import GlobalSearch from "../search/GlobalSearch";
+import { SignedIn, UserButton } from "@clerk/nextjs";
 
 const Navbar = () => {
   return (
@@ -31,14 +32,18 @@ const Navbar = () => {
         <Theme />
 
         {/* show the user name if he is signed in otherwise hidden */}
-        {/* <SignedIn>
-    <UserButton afterSignOutUrl="/" apperance={{
-        elements:{avatarBox:'h-10 w-10',},
-        variables:{
-            colorPrimary:'#ff7000'
-        }
-    }}/>
-</SignedIn> */}
+
+        <SignedIn>
+          <UserButton
+            afterSignOutUrl="/"
+            appearance={{
+              elements: { avatarBox: "h-10 w-10" },
+              variables: {
+                colorPrimary: "#ff7000",
+              },
+            }}
+          />
+        </SignedIn>
 
         {/* here  mobilenavigation bar */}
         <MobileNav />

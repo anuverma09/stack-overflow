@@ -3,79 +3,24 @@ import Filter from "@/components/shared/Filter";
 import { HomePageFilters } from "@/consants/filters";
 import LocalSearchBar from "@/components/shared/search/LocalSearchBar";
 import { Button } from "@/components/ui/button";
-import HomeFilters from "@/components/shared/home/HomeFilters";
+import HomeFilters from "@/components/home/HomeFilters";
 import NoResult from "@/components/shared/NoResult";
-import QuestionCard from "@/components/shared/cards/QuestionCard";
+import QuestionCard from "@/components/cards/QuestionCard";
+import { getQuestions } from "@/lib/actions/question.action";
+// import { UserButton } from "@clerk/nextjs";
 
-const question = [
-  {
-    _id: "1",
-    title: "Sample Question 1",
-    tags: [{ _id: "tag1", name: "Tech" }],
-    author: { _id: "user1", name: "John Doe", picture: "avatar.jpg" },
-    upvotes: 10,
-    views: 100,
-    answers: [],
-    createdAt: new Date("2024-04-08"),
-  },
-  {
-    _id: "3",
-    title: "Sample Question 2",
-    tags: [{ _id: "tag2", name: "Science" }],
-    author: { _id: "user2", name: "Jane Smith", picture: "avatar.jpg" },
-    upvotes: 5123456,
-    views: 5000000,
-    answers: [],
-    createdAt: new Date("2022-05-01"),
-  },
-
-  {
-    _id: "4",
-    title: "Cascading delete in SQLAlchemy?",
-    tags: [
-      { _id: "1", name: "python" },
-      { _id: "2", name: "sql" },
-    ],
-    author: { _id: "user3", name: "Mona", picture: "avatar.jpg" },
-    upvotes: 100054,
-    views: 20000,
-    answers: [{ _id: "ans4", text: "NLTK and spaCy are popular choices." }],
-    createdAt: new Date("2024-05-09"),
-  },
-  {
-    _id: "5",
-    title: "flex in css?",
-    tags: [
-      { _id: "1", name: "css" },
-      { _id: "2", name: "sql" },
-    ],
-    author: { _id: "user4", name: "Ricky", picture: "avatar.jpg" },
-    upvotes: 1000,
-    views: 2000,
-    answers: [{ _id: "ans4", text: "NLTK and spaCy are popular choices." }],
-    createdAt: new Date("2024-04-04"),
-  },
-  {
-    _id: "6",
-    title: "Python Libraries for Natural Language Processing",
-    tags: [
-      { _id: "tag11", name: "Python" },
-      { _id: "tag12", name: "NLP" },
-    ],
-    author: { _id: "user7", name: "Michael Johnson", picture: "avatar.jpg" },
-    upvotes: 18,
-    views: 140,
-    answers: [{ _id: "ans4", text: "NLTK and spaCy are popular choices." }],
-    createdAt: new Date("2024-03-09"),
-  },
-];
-
-export default function Home() {
+export default async function Home() {
+  const result = await getQuestions({});
+  // console.log(result.questions);
   return (
     <>
       {/*  */}
+      {/* <div>
+        <UserButton afterSignOutUrl="/" />
+      </div> */}
+
       <div className="flex w-full flex-col-reverse justify-between gap-4 sm:flex-row sm:items-center">
-        <h1 className=" h1-bold text-dark100_light900">All Questions</h1>
+        <h1 className="h1-bold text-dark100_light900">All Questions</h1>
         <Link href="/ask-question" className="flex justify-end max-sm:w-full ">
           <Button className="primary-gradient min-h-[46px] px-4 py-3 !text-light-900">
             Ask A Question
@@ -105,8 +50,8 @@ export default function Home() {
 
       {/* question cards */}
       <div className="mt-10 flex w-full flex-col gap-6">
-        {question.length > 0 ? (
-          question.map((question) => {
+        {result.questions.length > 0 ? (
+          result.questions.map((question) => {
             return (
               <QuestionCard
                 key={question._id}

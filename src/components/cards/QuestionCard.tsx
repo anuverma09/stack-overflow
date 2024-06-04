@@ -1,11 +1,12 @@
 import Link from "next/link";
 import React from "react";
-import RenderTag from "../RenderTag";
-import Metric from "../Metric";
-import likepic from "../../../../public/assets/icons/like.svg";
-import messagepic from "../../../../public/assets/icons/message.svg";
-import eyepic from "../../../../public/assets/icons/eye.svg";
-import avatarpic from "../../../../public/assets/icons/avatar.svg";
+import RenderTag from "../shared/RenderTag";
+import Metric from "../shared/Metric";
+
+import likepic from "../../../public/assets/icons/like.svg";
+import messagepic from "../../../public/assets/icons/message.svg";
+import eyepic from "../../../public/assets/icons/eye.svg";
+import avatarpic from "../../../public/assets/icons/avatar.svg";
 import { getTimestamp, formatBigNumber } from "@/lib/utils";
 
 interface QuestionProps {
