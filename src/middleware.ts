@@ -3,7 +3,7 @@ import { clerkMiddleware, createRouteMatcher } from "@clerk/nextjs/server";
 const isProtectedRoute = createRouteMatcher([
   "/ask-question(.*)",
   "/",
-  "/api/webhook",
+  // "/api/webhook",
   "/tags",
   "/tags/:id",
   "/profile/:id",
