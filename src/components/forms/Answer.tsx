@@ -15,7 +15,6 @@ import { Editor } from "@tinymce/tinymce-react";
 import { useRef, useState } from "react";
 import { useTheme } from "@/context/ThemeProvider";
 import { Button } from "../ui/button";
-import Image from "next/image";
 
 import { usePathname } from "next/navigation";
 import { AnswerSchema } from "@/lib/validation";
@@ -100,7 +99,7 @@ const Answer = ({ question, questionId, authorId }: Props) => {
           className="btn light-border-2 gap-1.5 rounded-md px-4 py-2.5 text-primary-500 shadow-none dark:text-primary-500"
           // onClick={generateAIAnswer}
         >
-          {isSubmittingAI ? (
+          {/* {isSubmittingAI ? (
             <>Generating...</>
           ) : (
             <>
@@ -113,7 +112,7 @@ const Answer = ({ question, questionId, authorId }: Props) => {
               />
               Generate AI Answer
             </>
-          )}
+          )} */}
         </Button>
       </div>
 
