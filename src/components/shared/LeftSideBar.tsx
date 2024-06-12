@@ -9,8 +9,12 @@ import { Button } from "@/components/ui/button";
 import accountpic from "../../../public/account.svg";
 // import accountpic from "../../../public/assets/icons/account.svg";
 import signuppic from "../../../public/assets/icons/sign-up.svg";
+import { useAuth } from "@clerk/nextjs";
 
 const LeftSideBar = () => {
+  const { userId } = useAuth();
+  // console.log("%%%%%%%%%%%5", userId);
+
   const pathname = usePathname();
   return (
     <section className="background-light900_dark200 light-border custom-scrollbar sticky left-0 top-0 flex h-screen flex-col justify-between overflow-y-auto border-r p-6 pt-36 shadow-light-300 dark:shadow-none max-sm:hidden lg:w-[266px]">
@@ -22,6 +26,14 @@ const LeftSideBar = () => {
             pathname === item.route;
 
           // todo
+          if (item.route === "/profile") {
+            if (userId) {
+              item.route = `${item.route}/${userId}`;
+            } else {
+              return null;
+            }
+          }
+
           return (
             <Link
               key={item.route}
