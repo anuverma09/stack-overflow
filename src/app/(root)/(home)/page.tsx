@@ -12,14 +12,9 @@ import {
 } from "@/lib/actions/question.action";
 import { SearchParamsProps } from "@/types";
 import Pagination from "@/components/shared/Pagination";
-import Loading from "./loading";
+
 import { Metadata } from "next";
 import { auth } from "@clerk/nextjs/server";
-// import { UserButton } from "@clerk/nextjs";
-
-// export interface SearchParamsProps {
-//   searchParams: { [key: string]: string | undefined };
-// }
 
 export const metadata: Metadata = {
   title: "Home | stack overflow",
@@ -52,18 +47,8 @@ export default async function Home({ searchParams }: SearchParamsProps) {
     });
   }
 
-  // console.log(result.questions);
-
-  // const isLoading = true;
-  // if (isLoading) return <Loading />;
-
   return (
     <>
-      {/*  */}
-      {/* <div>
-        <UserButton afterSignOutUrl="/" />
-      </div> */}
-
       <div className="flex w-full flex-col-reverse justify-between gap-4 sm:flex-row sm:items-center">
         <h1 className="h1-bold text-dark100_light900">All Questions</h1>
         <Link href="/ask-question" className="flex justify-end max-sm:w-full ">

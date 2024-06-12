@@ -19,7 +19,7 @@ import { revalidatePath } from "next/cache";
 import Question from "@/database/question.model";
 
 import Answer from "@/database/answer.model";
-import page from "@/app/(root)/(home)/page";
+
 import { assignBadges } from "../utils";
 
 // import { BadgeCriteriaType } from "@/types";

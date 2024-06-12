@@ -6,7 +6,6 @@ import { getAllUsers } from "@/lib/actions/user.action";
 import Link from "next/link";
 import { SearchParamsProps } from "@/types";
 import Pagination from "@/components/shared/Pagination";
-import Loading from "./loading";
 
 const CommunityPage = async ({ searchParams }: SearchParamsProps) => {
   const result = await getAllUsers({
@@ -15,8 +14,6 @@ const CommunityPage = async ({ searchParams }: SearchParamsProps) => {
     page: searchParams.page ? +searchParams.page : 1,
   });
 
-  // const isLoading = true;
-  // if (isLoading) return <Loading />;
   return (
     <>
       <h1 className="h1-bold text-dark100_light900">All Users</h1>
